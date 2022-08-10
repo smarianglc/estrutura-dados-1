@@ -1,0 +1,7 @@
+****TAREFAS****
+Deselvover agoritmos de ordenação dos vetor de 50k, 100k e 500k - bubble Sort, Selection Sort e Insertion Sort
+--BUBBLE SORT--
+Quantidade de vezes que o vetor foi varrido: 
+Quantidade de comparaçoes: 
+Quantidade de trocas nas comparaçoes: 
+Tempo: 
