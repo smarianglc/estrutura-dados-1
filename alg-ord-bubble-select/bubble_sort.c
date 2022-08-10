@@ -33,7 +33,7 @@ void bubble (int vetor[], int size){
 
 
 //função de impressao
-void imprimir(int *vetor, int size){
+/*void imprimir(int *vetor, int size){
     int i;
     
     for(i = 0; i < size; i++){
@@ -42,5 +42,17 @@ void imprimir(int *vetor, int size){
     printf("\n Quantidade de vezes que passou no vetor: %d", quant_var);
     printf("\n Quantidade de comparacoes: %d", quant_comp);
     printf("\n Quantidade de trocas nas comparacoes: %d", quant_troca);
-}
+}*/
 
+void gravar_arquivo (double total_temp){
+    FILE *arq_bubble = fopen("file_bubble.txt", "w");
+    if(arq_bubble == NULL){
+        printf("ERRO NO ARQUIVO AO GRAVAR!\n");
+    }
+    fprintf(arq_bubble,"\n Quantidade de vezes que passou no vetor: %d", quant_var);
+    fprintf(arq_bubble, "\n Quantidade de comparacoes: %d", quant_comp);
+    fprintf(arq_bubble, "\n Quantidade de trocas nas comparacoes: %d", quant_troca);
+    fprintf(arq_bubble, "\n Tempo da funcao: %f", total_temp);
+
+    fclose(arq_bubble);
+}

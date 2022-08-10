@@ -2,21 +2,26 @@
 #include <stdlib.h>
 #include "bubble.h"
 #include <time.h>
+#define size 100000
 
 int main (void){
 
     double total_temp = 0;
     clock_t begin = clock();
 
-    int vetor[] = {3, 8, 9, 0 , 6, 1, 2, 4};
+    int vetor[size];
+    int i;
+    for(i = 0; i < size; i++){
+        vetor[i] = rand()%size;
+    }
 
     
     //chamando a funcao
-    bubble(vetor, 8);
-    imprimir(vetor, 8);
+    bubble(vetor, size);
+    //imprimir(vetor, 8);
 
     clock_t end = clock();
     total_temp += (double)(end - begin) / CLOCKS_PER_SEC;
-    printf("\n Tempo da funcao: %f", total_temp);
+    gravar_arquivo(total_temp);
     return 0;
 }
