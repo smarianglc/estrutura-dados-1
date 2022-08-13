@@ -55,4 +55,5 @@ void gravar_arquivo (double total_temp){
     fprintf(arq_bubble, "\n Tempo da funcao: %f", total_temp);
 
     fclose(arq_bubble);
+    
 }

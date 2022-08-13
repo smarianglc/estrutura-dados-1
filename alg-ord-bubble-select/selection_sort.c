@@ -1,36 +1,59 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#define TAM 8
+#include "selection.h"
 
-void selection(int vetor[], int size){
-    for (int i = 0; i < TAM; i++){
-        int menor = i; //armazenando apenas o inidice 
-        for(int j = i; j < TAM; j++){ //percorrer o vetor
-            if (vetor[j] < vetor[menor]){
-                menor = j;
-            }
-        }
-        swap(&vetor[i], &vetor[menor]);
-    }
+int soma_troca; 
+int quant_varredura;
+int quant_comparacao;
 
-}
+// trocar elementos
 void swap(int *a, int *b){
     int aux = *a;
     *a = *b;
     *b = aux;
-
 }
 
-void Print(int array){
-    for(int i = 0; ){
-
+//FUNÇÃO DE ORDENACAO 
+void selection(int vetor[], int TAM){
+    
+    for (int i = 0; i < TAM; i++){ //vai percorrer pelo o vetor todo até o ultimo 
+        int menor = i; // armazenando apenas o indice
+    
+        for (int j = i; j < TAM; j++){ //vai fazer as coprações entre os vetores
+            if (vetor[j] < vetor[menor]){
+                menor = j;
+            }
+            quant_comparacao = quant_comparacao +1;
+        }
+        if(i != menor){ 
+            swap(&vetor[i], &vetor[menor]);
+            soma_troca +=1; 
+        }
+        quant_varredura += 1;
     }
-
 }
 
-int main (){
-    int data[] = {0, 2, 7, 0, 9, 3, 8, 8};
-
-    return 0;
+int imprimir(const int *vetor, int TAM){
+  for (int i = 0; i < TAM; i++){
+    printf("[%d]", vetor[i]);
+  }
+  
+  printf("\n");
+  printf("Quantidade de troca: %d\n", soma_troca);
+  printf("Quantidade de carreduras: %d\n", quant_varredura -1);
+  printf("Quandidade de comparacoes %d \n", quant_comparacao);
 }
+/*
+void gravar_arquivo (double total_temp){
+    FILE *arq_selection1 = fopen("file_bubble.txt", "w");
+    if(arq_selection1 == NULL){
+        printf("ERRO NO ARQUIVO AO GRAVAR!\n");
+    }
+    fprintf(arq_selection1,"\n Quantidade de vezes que passou no vetor: %d", arq_selection1);
+    fprintf(arq_selection1, "\n Quantidade de comparacoes: %d", arq_selection1);
+    fprintf(arq_selection1, "\n Quantidade de trocas nas comparacoes: %d", arq_selection1);
+    fprintf(arq_selection1, "\n Tempo da funcao: %f", total_temp);
+
+    fclose(arq_selection1);
+}
+*/

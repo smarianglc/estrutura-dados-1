@@ -2,4 +2,4 @@
  Quantidade de vezes que passou no vetor: 99999
  Quantidade de comparacoes: 1409865409
  Quantidade de trocas nas comparacoes: -1788922785
- Tempo da funcao: 80.688000
+ Tempo da funcao: 73.677000
