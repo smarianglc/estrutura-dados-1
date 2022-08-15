@@ -14,7 +14,7 @@ void swap(int *a, int *b){
 }
 
 //FUNÇÃO DE ORDENACAO 
-void selection(int vetor[], int TAM){
+void selection(int *vetor, int TAM){
     
     for (int i = 0; i < TAM; i++){ //vai percorrer pelo o vetor todo até o ultimo 
         int menor = i; // armazenando apenas o indice

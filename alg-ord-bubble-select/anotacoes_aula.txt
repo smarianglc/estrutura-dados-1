@@ -1,7 +1,26 @@
 ****TAREFAS****
-Deselvover agoritmos de ordenação dos vetor de 50k, 100k e 500k - bubble Sort, Selection Sort e Insertion Sort
+Deselvover agoritmos de ordenação dos vetor de 500, 1k, 10k, 500k e 1M - bubble Sort, Selection Sort e Insertion Sort
 --BUBBLE SORT--
 Quantidade de vezes que o vetor foi varrido: 
 Quantidade de comparaçoes: 
 Quantidade de trocas nas comparaçoes: 
 Tempo: 
+quais melhorias:
+colocar as expecificações no pc:
+fazer uma conclusão com todos os algoritmos:
+
+--------------aula 15/08------------------
+MERGE - é baseado na estregia "dividir pra conquistar"
+        Uma função recursiva - é chamar uma outra instacia da função:
+            toda vez que chamar a instacia outro espaço da memoria e alocado 
+            outra chama é o "return"
+        
+        Como funciona o Merge:
+        1º ele vai dividir o vetor ao meio, então tendo subvetores
+        2º ele faz uma chamada recursiva, dividindo os subvetores 
+        ele vai fazendo as chamadas para conseguir interpretar quem o final do subvetores, o final é quando 
+        tem apenas um elemento em cada subvetor
+        3º ele vai chamar a função merge: para juntar tudo 
+        4º faz a junção de dois subvetores com um elemento, então agora para subvetores com dois elementos
+        5ª faz acomparação entre os topos de cada subvetores e faz a junção até voltar ser um vetor só 
+
