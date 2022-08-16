@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "softTec",
+		"files.associations": {
+			"stdio.h": "c"
+		}
+	}
+}
