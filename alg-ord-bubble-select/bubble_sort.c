@@ -18,11 +18,15 @@ void swap (int *a, int *b){
 void bubble (int vetor[], int size){
     int i, j;
 
-    for (i = 0; i < size - 1; i++){
+    for (i = 0; i < size - 1; i++){ 
         for(j = 0; j < size - 1; j++){
             if(vetor[j] > vetor[j + 1]){
                 swap(&vetor[j], &vetor[j + 1]);
-                quant_troca = quant_troca + 1;
+
+                if(quant_var == vetor[j+1]){
+                    break;
+                    quant_troca = quant_troca + 1;
+                }
             }
             quant_comp = quant_comp + 1;
         }
@@ -44,16 +48,19 @@ void bubble (int vetor[], int size){
     printf("\n Quantidade de trocas nas comparacoes: %d", quant_troca);
 }*/
 
-void gravar_arquivo (double total_temp){
-    FILE *arq_bubble = fopen("file_bubble.txt", "w");
-    if(arq_bubble == NULL){
+void gravar_arquivo (double total_temp, int size){
+    FILE *file_bubble = fopen("file_bubble.txt", "a");
+    if(file_bubble == NULL){
         printf("ERRO NO ARQUIVO AO GRAVAR!\n");
     }
-    fprintf(arq_bubble,"\n Quantidade de vezes que passou no vetor: %d", quant_var);
-    fprintf(arq_bubble, "\n Quantidade de comparacoes: %d", quant_comp);
-    fprintf(arq_bubble, "\n Quantidade de trocas nas comparacoes: %d", quant_troca);
-    fprintf(arq_bubble, "\n Tempo da funcao: %f", total_temp);
+    fprintf(file_bubble, "\n INFORAÇOES DO VETOR DE TAMANHO %d", size);
+    fprintf(file_bubble, "\n Quantidade de trocas nas comparacoes: %ld", quant_troca);
+    fprintf(file_bubble, "\n Quantidade de varreduras feita no vetor: %ld", quant_var -1);
+    fprintf(file_bubble, "\n Quantidade de comparacoes: %ld", quant_comp);
+    fprintf(file_bubble, "\n Tempo da funcao: %.2f", total_temp);
+    fprintf(file_bubble, "\n ------------------------------------------------------------");
+    fprintf(file_bubble, "\n ------------------------------------------------------------");
 
-    fclose(arq_bubble);
+    //fclose(file_bubble);
     
 }
