@@ -4,3 +4,11 @@ Fazer uma comparação de bubble Sort e Select Sort, ver a quantidade de trocas,
 quantidade de comparações e tempo (salvar em arquivo) TAMANHO DO VETOR 5 - 10 - 50|| tem que ter os arquivos .h 
 
 
+--------------------------------------------------------------------
+--------------------------AULA 22/08--------------------------------
+DESAFIO: em grupo desenvolver um algoritmo de quick Sort e apresentar para a turma
+PROBLAMA: ordenar o vetor {4, 5, 8, 6, 2, 7, 3} escolher o PIVO para determinar a eficiencia do algoritmo
+         - se ecolher uma maneira de ordenar do vetor e qual é a vantage e desvantagem, vitando que caia em ordem quadratica
+         - usar casos reais com dados para ordenar 
+         - posso mudar a estragégoa da escolha no meio do algoritmo, então escrever uma TAD 
+         - radocnamente para fazer uma nova escolha
