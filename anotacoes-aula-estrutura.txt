@@ -12,3 +12,13 @@ PROBLAMA: ordenar o vetor {4, 5, 8, 6, 2, 7, 3} escolher o PIVO para determinar 
          - usar casos reais com dados para ordenar 
          - posso mudar a estragégoa da escolha no meio do algoritmo, então escrever uma TAD 
          - radocnamente para fazer uma nova escolha
+
+--------------------------------------------------------------------
+--------------------------AULA 29/08--------------------------------
+Listas Lineares => linkked_list
+
+uma estrutura para controlar e outra estrutura para controlar os nó
+
+-PARA A PROXIMA 
+desenvolver um algoritmo de lista melhorado 
+

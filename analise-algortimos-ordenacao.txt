@@ -1,0 +1,12 @@
+--------ANALISE DO ALGORITMO BUBBLE SORT----------
+é um algoritmo de ordenação simples e para entender e implementar é facil, porém quando um vetor ou lista 
+te um numero grande de elementos, a efiencia do algoritmo é um problema. Quando os elementos dos vetores
+já estão ordenados é melhor caso e para o pior caso, é quando o elementos em ordem inversa.
+
+--------ANALISE DO ALGORITMO SELECT SORT----------
+É um algoritmo de ordenação, que divide o vetor em dois subvetores, dividi os subvetores em subvetores a parte 
+ordenada fica a esquerda do elemento analisado e não ordenada a direita. Para todo elemento do vetor, é 
+procurado ao lado direito o menor valor e faz a troca, sempre vai ser uma comparação entre dois elemento, 
+para encontrar o menor valor. Não tem o melhor caso porque independente se o vetor estiver ordenado ou não, 
+o algoritmo vai fazer todo o processo, é lento para vetores grandes, mas não necessita de um vetor auxiliar, 
+não usa muita memória.
