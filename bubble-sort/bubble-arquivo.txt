@@ -1,0 +1,35 @@
+DADOS DO VETOR: 500
+ Numero de trocas 0
+ Numero de verreduras no vetor: -1
+ Numero de comparacoes: 0
+ O tempo de execucao foi de: 0.00
+ ------------------------------------------
+
+DADOS DO VETOR: 1000
+ Numero de trocas 0
+ Numero de verreduras no vetor: -1
+ Numero de comparacoes: 0
+ O tempo de execucao foi de: 0.01
+ ------------------------------------------
+
+DADOS DO VETOR: 10000
+ Numero de trocas 0
+ Numero de verreduras no vetor: -1
+ Numero de comparacoes: 0
+ O tempo de execucao foi de: 0.40
+ ------------------------------------------
+
+DADOS DO VETOR: 500000
+ Numero de trocas 0
+ Numero de verreduras no vetor: -1
+ Numero de comparacoes: 0
+ O tempo de execucao foi de: 193.72
+ ------------------------------------------
+
+DADOS DO VETOR: 1000000
+ Numero de trocas 0
+ Numero de verreduras no vetor: -1
+ Numero de comparacoes: 0
+ O tempo de execucao foi de: 927.39
+ ------------------------------------------
+

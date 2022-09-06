@@ -1,0 +1,7 @@
+DADOS DO VETOR: 500
+ Numero de trocas 491
+ Numero de verreduras no vetor: 500
+ Numero de comparacoes: 125751
+ O tempo de execucao foi de: 0.00 
+ ------------------------------------------
+

@@ -6,8 +6,8 @@
 void cont_tempo (int *vector, int size);
 
 int main (void){
-    int tam_vetor = 500;
-     int *vector;
+    long int tam_vetor = 500;
+    int *vector;
 
     vector = (int *) malloc(tam_vetor *sizeof(int));
     if(vector == NULL){

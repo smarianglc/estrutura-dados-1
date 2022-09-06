@@ -24,10 +24,10 @@ void selection (int *vector, int size){
     cont_comparacao = 0;
 
     for(i = 0; i <= size; i++){
-        menorElemento = 1;
+        menorElemento = i;
         cont_varredura = cont_varredura + 1;
 
-        for(j = 0; j <= size; j++){
+        for(j = i; j <= size; j++){
             cont_comparacao = cont_comparacao + 1;
 
             if(vector[j] < vector[menorElemento]){
@@ -44,7 +44,7 @@ void selection (int *vector, int size){
 
 void saveFile (int size, double tempo){
     FILE *file;
-    file = fopen("arquivoSelect-certo.txt", "a");
+    file = fopen("new-selction-file.txt", "a");
     if(file == NULL){
         printf("\n ERRO AO GRAVAR O ARQUIVO");
     }
