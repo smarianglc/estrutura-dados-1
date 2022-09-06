@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include "selection.h"
 
-int soma_troca; 
-int quant_varredura;
-int quant_comparacao;
+int soma_troca = 0; 
+int quant_varredura = 0;
+int quant_comparacao = 0;
 
 // trocar elementos
 void swap(int *a, int *b){

@@ -19,9 +19,9 @@ void selection (int *vector, int size){
     int i, j;
     int menorElemento;
 
-    cont_troca = 0;
-    cont_varredura = 0;
-    cont_comparacao = 0;
+    // cont_troca = 0;
+    // cont_varredura = 0;
+    // cont_comparacao = 0;
 
     for(i = 0; i <= size; i++){
         menorElemento = i;
