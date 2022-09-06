@@ -1,0 +1,9 @@
+-----AULA 06-----
+Implementar: 
+    - inserir ordenado
+    - pesquisa (num se existe, print posicao)
+    - remova algum elemento 
+    - Implementar m LL finlista 
+
+em casa: Implementar uma outra lista com uma tad 
+
