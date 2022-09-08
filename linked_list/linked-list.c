@@ -1,67 +1,75 @@
-#include<stdio.h>
-#include<stdlib.h>
-//#include "linked_list.h"
+#include "linked-list.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-//DEFININDO ESTRUTURA 
-typedef struct _noSimple{
+//DEFININDO ESTRUTURA PARA NÓ SIMPLES
+typedef struct _node_simple{
     int value;
-    struct _noSimple *next;
-} NoSimple;
+    struct _node_simple *next;
+}NodeSimple;
 
-typedef struct _LinkedList{
-    int size;
-    NoSimple *begin;
-    NoSimple *end;
-} LinList;
+//DEFININDO ESTRUTURA PARA LISTA ECANDEADA SIMPLES
+typedef struct _linked_list{
+    NodeSimple *begin; //nó inicial 
+}LinkedList;
 
-//FUNÇÕES DE ALOCANDO  
-NoSimple *CreatenNS(int val) {
-    NoSimple *nosi = (NoSimple *)calloc(1, sizeof(NoSimple)); 
-    nosi -> value = val;  
-    nosi -> next = NULL; 
+//FUNCAO PARA ALOCAR ESTRUTURA NÓ 
+/*inserir o valor*/
+NodeSimple *Create_NoSi(int val){
+    NodeSimple *SN = (NodeSimple*) calloc(1, sizeof(NodeSimple));
+    SN -> value = val;
+    SN -> next = NULL; //só pra dizer que não existe proximo
 
-    return nosi;
+    return SN;
+} 
+//FUNCAO PARA ALOCAR ESTRUTURA LINKEDLIST:  
+LinkedList *LiLi_create(){
+    LinkedList *L = (LinkedList *) calloc(1, sizeof(LinkedList));
+    L -> begin = NULL; //só pra dizer que o proximo elemento é NULL (não existe)
+
+    return L;
 }
 
-LinList *CreateL(){
-    LinList *list = (LinList*)calloc(1, sizeof(LinList)); 
-    list -> begin = NULL; 
-
-    return list;
+//FUNÇÃO PARA QUE INICIAR A LISTA
+/*list vai apontar para o primeiro nó da list*/
+void ADD_LinkedList(LinkedList *L, int val){
+    //pode ser usado para se a lista esta vazia ou não
+    NodeSimple * noP = Create_NoSi(val);
+    noP -> next = L -> begin;
+    L -> begin = noP;
 }
 
-//FUNÇÃO PARA CRIAR NÓ PONT P
-void firstADD (LinList *list, int value){
-        NoSimple *pont = CreatenNS(value); 
-        pont -> next = list -> begin;
-        list -> begin = pont; 
-        list -> size++;
-}
+//FUNCAO PARA ADICONAR UM ELEMENTO AO FINAL DA LISTA
+void add_Last_ll(LinkedList *L, int val){
+    NodeSimple *noQ = LiLi_create(val);
 
-void LastADD(LinList *list, int val)
-{
-    NoSimple *pont = CreatenNS(val);
-    
-    if(list -> begin == NULL){
-        list -> begin = pont;
+    if(L -> begin == NULL){//se a lista estiver vazia
+       
+        L -> begin = noQ; /*adiciona o elemento*/
     }
-    else{
-        NoSimple *aux = list -> begin;
-        while(aux -> next != NULL){
-            aux = aux->next;
+    else{ /*se a lista possui elemento*/
+        /*percorre toda a lista até encontra o elemento que aponte para o NULL*/
+        NodeSimple *noP = L -> begin;
+        while (noP -> next != NULL) {
+            noP = noP -> next;
         }
-        aux->next = pont;
+        /*o proximo elemento do atual último nó aponte para o novo último nó*/
+        noP -> next = noQ;
+        
     }
-    list->size++;
 }
 
-void print(const LinList *lista){
-    NoSimple *pont = lista->begin;
-    printf("Lista -> ");
-    
-    while(pont != NULL){
-        printf("|%d|-> ", pont -> value);
-        pont = pont -> next;
+//FUNCAO DE IMPRESSÃO
+void Print_LinkedList(const LinkedList *L){
+    NodeSimple *noP = L -> begin;
+
+    printf("inicioList -> ");
+    /*enquanto noP for diferente, ou seja quanto estiver apontando para um nó da lista */
+    while (noP != NULL){ 
+        printf("%d -> ", noP -> value); /*vai imprimir*/
+        noP = noP -> next; /*pula para o proximo*/
     }
-    printf("NULL\n");
+    printf("NULL");
+    printf("\n");
+    
 }
