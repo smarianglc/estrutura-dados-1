@@ -11,6 +11,7 @@ typedef struct _node_simple{
 //DEFININDO ESTRUTURA PARA LISTA ECANDEADA SIMPLES
 typedef struct _linked_list{
     NodeSimple *begin; //nó inicial 
+    NodeSimple *end; //nó final
 }LinkedList;
 
 //FUNCAO PARA ALOCAR ESTRUTURA NÓ 
@@ -26,6 +27,7 @@ NodeSimple *Create_NoSi(int val){
 LinkedList *LiLi_create(){
     LinkedList *L = (LinkedList *) calloc(1, sizeof(LinkedList));
     L -> begin = NULL; //só pra dizer que o proximo elemento é NULL (não existe)
+    L -> end = NULL;
 
     return L;
 }
@@ -39,9 +41,25 @@ void ADD_LinkedList(LinkedList *L, int val){
     L -> begin = noP;
 }
 
-//FUNCAO PARA ADICONAR UM ELEMENTO AO FINAL DA LISTA
+//FUNCAO PARA ADIOCIONAR ELEMENTS NO FINAL DA LISTA (sem percorrer por todo os elementos)
 void add_Last_ll(LinkedList *L, int val){
-    NodeSimple *noQ = LiLi_create(val);
+    puts("testando");
+
+    NodeSimple *noQ = Create_NoSi(val);
+
+    if(L -> begin == NULL){//se a lista estiver vazia
+        L -> begin = noQ;
+        L -> end = noQ;
+    }
+    else{ /*se a lista possui elemento*/
+        L -> end -> next = noQ; //acessa o utimo elemento da lista e o ponteiro para o proximo dele, aponte para o novo nó
+        L -> end = L -> end -> next;
+    }
+}
+
+//FUNCAO PARA ADICONAR UM ELEMENTO AO FINAL DA LISTA (função mais lenta)
+void add_Last_slow_ll(LinkedList *L, int val){
+    NodeSimple *noQ = Create_NoSi(val);
 
     if(L -> begin == NULL){//se a lista estiver vazia
        
