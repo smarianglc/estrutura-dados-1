@@ -1,16 +1,17 @@
 #include <stdio.h>
 #include <stdlib.>
+#include "aula-lista-dupla.h"
+#include <stdef.h>
+#include 
 
-//FUNÇÃO DESTROI A LISTA 
-void linkedList_destroy(LinkedList **L_ref){
-    LinkedList *L = *L_ref;
-    SNode *p = L -> begin;
-    SNode *aux = NULL;
+typedef struct _double_node{
+    int val;
+    struct _double_node *next;
+    struct _double_node *prev;
+}DoubleNode, Node;
 
-    while(p != NULL){
-        aux = p; //guarda a referencia
-        p = p -> next; //guarda a referencia do proximo
-        free(aux);
-    }
-    free(L); //desaloca a lista
-}
+typedef struct _double_linked_list{
+    Node *begin;
+    Node *end;
+    size_t size;
+}DoubleLinkedList, List;
