@@ -3,8 +3,6 @@
 typedef struct _double_node DoubleNode, Node;
 typedef struct _duble_linked_list DoubleLinkedList, List;
 
-
-
 Node *Node_create(int val);
 DoubleLinkedList *List_create();
 

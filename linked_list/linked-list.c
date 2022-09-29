@@ -94,8 +94,8 @@ void Print_LinkedList(const LinkedList *L){
 //FUNCAO PARA DESTRUIR A LISTA
 void linkedList_destroy(LinkedList **L_ref){
     LinkedList *L = *L_ref;
-    SNode *p = L -> begin;
-    SNode *aux = NULL;
+    NodeSimple *p = L -> begin;
+    NodeSimple *aux = NULL;
 
     while(p != NULL){
         aux = p; //guarda a referencia
