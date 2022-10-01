@@ -23,6 +23,7 @@ NodeSimple *Create_NoSi(int val){
 
     return SN;
 } 
+
 //FUNCAO PARA ALOCAR ESTRUTURA LINKEDLIST:  
 LinkedList *LiLi_create(){
     LinkedList *L = (LinkedList *) calloc(1, sizeof(LinkedList));
@@ -32,22 +33,37 @@ LinkedList *LiLi_create(){
     return L;
 }
 
+bool *LinkedList_is_empty(const LinkedList *l){
+    return (l->begin == NULL && l->end == NULL);
+}
+
 //FUNÇÃO PARA QUE INICIAR A LISTA
 /*list vai apontar para o primeiro nó da list*/
-void ADD_LinkedList(LinkedList *L, int val){
-    //pode ser usado para se a lista esta vazia ou não
-    NodeSimple * noP = Create_NoSi(val);
-    noP -> next = L -> begin;
-    L -> begin = noP;
+// void ADD_LinkedList(LinkedList *L, int val){
+//     //pode ser usado para se a lista esta vazia ou não
+//     NodeSimple * noP = Create_NoSi(val);
+//     noP -> next = L -> begin;
+//     L -> begin = noP;
+// }
+
+//FUNCAO PARA NOVA INSERCAO NO INICIO DA LISTA
+void ADD_LinkedList_Inicio(LinkedList *L, int val){
+    NodeSimple *noP = Create_NoSi(val);
+    
+    noP->next = L->begin; 
+    if (LinkedList_is_empty(L)){
+        L->end = noP; //final também aponta para noP
+    } 
+    L->begin = noP; //comeco da lista aponta para noP   
 }
 
 //FUNCAO PARA ADIOCIONAR ELEMENTS NO FINAL DA LISTA (sem percorrer por todo os elementos)
 void add_Last_ll(LinkedList *L, int val){
-    puts("testando");
+    //puts("testando");
 
     NodeSimple *noQ = Create_NoSi(val);
 
-    if(L -> begin == NULL){//se a lista estiver vazia
+    if(LinkedList_is_empty(L)){//se a lista estiver vazia
         L -> begin = noQ;
         L -> end = noQ;
     }
@@ -61,7 +77,7 @@ void add_Last_ll(LinkedList *L, int val){
 void add_Last_slow_ll(LinkedList *L, int val){
     NodeSimple *noQ = Create_NoSi(val);
 
-    if(L -> begin == NULL){//se a lista estiver vazia
+    if(LinkedList_is_empty(L)){//se a lista estiver vazia
        
         L -> begin = noQ; /*adiciona o elemento*/
     }
