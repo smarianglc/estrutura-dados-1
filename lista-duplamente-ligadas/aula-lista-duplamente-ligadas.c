@@ -3,19 +3,21 @@
 #include <stddef.h>
 #include "aula-lista-dup.h"
 
+//DECLARANDO ESTRUTURA NÓ
 typedef struct _double_node{
     int val;
     struct _double_node *next;
     struct _double_node *prev;
 }DoubleNode, Node;
 
+//DECLARANDO ESTRUTURA LISTA
 typedef struct _double_linked_list{
     Node *begin;
     Node *end;
     size_t size;
 }DoubleLinkedList, List;
 
-//CONSTRUTOR
+//CONSTRUTOR DO NÓ 
 Node *Node_create(int value){ //outro nó para outra estrutura (Node *p)
     Node *node = (Node*)calloc(1, sizeof(Node));
 
@@ -26,7 +28,7 @@ Node *Node_create(int value){ //outro nó para outra estrutura (Node *p)
     return node; //retorna um endereço de memoria
 }
 
-//CONSTRUTOR
+//CONSTRUTOR DA LISTA 
 List *List_create(){
     List *l = (List*)calloc(1, sizeof(List));
 
@@ -73,4 +75,33 @@ void List_Add_firt(DoubleLinkedList *list, int val){
     list->size++;
 }
 
-//
+void List_Add_Last(DoubleLinkedList *list, int val){
+    Node *newNO = Node_create(val);
+
+    newNO->prev = list->end; //o nó anterior é o proximo elemento 
+
+    //verifica se a lista ta vazia 
+    if(List_is_empty(list)){
+        list->begin = newNO;
+    }
+    else{
+        list->end->next = newNO;
+    }
+
+    list->end = newNO;
+    list->size++;
+
+
+}
+
+void list_print(const DoubleLinkedList *list){
+    Node *p = list->begin;
+
+    while (p != NULL){
+        printf("%d - \t", p->val);
+        p = p->next;
+    }
+
+    printf("Tamanho da lista = %d \n ", list->size);
+     
+}
