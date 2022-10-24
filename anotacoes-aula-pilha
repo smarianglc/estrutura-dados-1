@@ -1,0 +1,89 @@
+**PILHA** -> LIFO Last In First Out 
+    * atos -> Push (inserir) e Pop (retirar) da estrutura
+    
+    *TIPOS DE PILHAS*
+    --Estáticas-- implementadas com vetores, ou seja, define o tamanho, controlando apenas o indice e não o ponteiro. 
+                  -> a pilha S(0..n-1) possui parte ocupada S(0..top)
+                  -> o inidice top define o topo da pilha 
+                  -> a pilha esta varias se top == 1
+                  -> a pilha esta vazia se top == n -1 
+                  -> consulta (peek)
+                  -> inserir (push)
+                  -> remove (pop)
+                  
+                  **COBRAR EM PROVAR**
+                  Como organzar im pilha estática?? uma forma é usando o vetor auxulia e segunda forma é usar uma pilha auxiliar 
+    --Disnamica-- impletando com duplamente listas encadeadas, então não temos uma capacidade de elementos 
+    
+    ################################################### CODIFICANDO ####################################################################
+    
+    --- arquivo .h ---
+    #ifndef STATIC_STACK
+    #define STATIC_STACK
+    
+    #include <stdbool.h>
+    
+    typedef struct _static_stack StaticStack;
+    
+    StaticStack *StaticStack_create(long capacity);
+    
+    void StaticStack_destroy(StaticStack **s_stack);
+    
+    bool Stati (const StaticStack *s);
+    bool StaticStack_isFul(const StaticStack *s);
+    
+    long StaticStack_size(const StaticStack *s);
+    
+    void StaticStack_push (StaticStack *s, long value);
+    int StaticStack_peek (StaticStack *s);
+    int StaticStack_pop (StaticStack *s);
+    void StatickStack_print (StaticStack *s, char)
+    
+    #endif
+    
+    --- arquivo .c ---
+    
+    #include <stdlib.h> 
+    #include <stdio.h>
+    
+    typedef struct _static_stack{
+      int *data;
+      long capacity;
+      long top;
+    }StaticStack;
+    
+    void StaticStack_destroy(StaticStack **s_stack){
+      Stack *s = (Stack *) calloc (1, sizeof(Static));
+      
+      s -> capacity = capacity;
+      s -> top = -1;
+      
+      s -> data = (int *) calloc (s->capcity, sizeof(int));
+      
+      return s;
+    }
+    
+    void StaticStack_destroy(StaticStack **s_stack){
+      StaticStack *s = s_stack;
+      
+      free(s->data);
+      free(s);
+      s_stack = NULL;  
+    }
+    
+    bool Static (const StaticStack *s){
+      return S->top = -1;
+    }
+    
+    bool StaticStack_isFul(const StaticStack *s){
+      return s->top = s-> capcity;
+    }
+    
+    void StaticStack_push(StaticStack *s, long value){
+      s->top++;
+      s->data[s->top] = value;
+    }
+    
+    int StaticStack_pop(StaticStack *s){
+      int aux = s-> data[s->top];
+    }
