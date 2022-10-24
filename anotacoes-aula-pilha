@@ -86,4 +86,7 @@
     
     int StaticStack_pop(StaticStack *s){
       int aux = s-> data[s->top];
+      s->top++;
+      
+      return s;
     }
