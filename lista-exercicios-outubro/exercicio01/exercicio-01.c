@@ -47,6 +47,15 @@ void Linkedlist_add_first(LinkedList *l, int val){
     l->begin = pont;
 }
 
+void linkedlist (LinkedList *l, int val){
+    Node *pont = Node_create(val);
+    pont -> next = l -> begin;
+    
+    if (LinkedList_is_empty(l)){
+        Linkedlist_add_first(lista, valor);
+    }
+}
+
 void LinkedList_remove(LinkedList *l, int val){
     if(!LinkedList_is_empty(l)){
         if(l->begin->val == val){
