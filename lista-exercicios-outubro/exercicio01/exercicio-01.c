@@ -35,33 +35,45 @@ bool LinkedList_is_empty(const LinkedList *l){
     return(l->begin == NULL && l->end == NULL);
 }
 
-//função para add no final da lista 
-void Linkedlist_add_first(LinkedList *l, int val){
-    Node *pont = Node_create(val);
-    pont->next = l->begin;
+void Linkedlist_add_last(LinkedList *l, int val){
+    Node *noP = Node_create(val);
+    noP->next = l->begin;
 
-    if(LinkedList_is_empty(l)){
-        l->end = pont;
-    }
-
-    l->begin = pont;
-}
-
-void linkedlist (LinkedList *l, int val){
-    Node *pont = Node_create(val);
-    pont -> next = l -> begin;
-    
     if (LinkedList_is_empty(l)){
-        Linkedlist_add_first(lista, valor);
+        l->end = noP;
     }
+
+    l->begin = noP;
+
 }
+
+// //função para add no final da lista 
+// void Linkedlist_add_first(LinkedList *l, int val){
+//     Node *pont = Node_create(val);
+//     pont->next = l->begin;
+
+//     if(LinkedList_is_empty(l)){
+//         l->end = pont;
+//     }
+
+//     l->begin = pont;
+// }
 
 void LinkedList_remove(LinkedList *l, int val){
     if(!LinkedList_is_empty(l)){
         if(l->begin->val == val){
             Node *pos = l->begin;
-            l->begin = l->begin->next;
-            free(pos);
+            LinkedList_remove(l->begin->next);
+            free(l);
+
         }
     }
 }
+
+// void Linkedlist_recusiva (LinkedList *l, int val){
+//     if(!LinkedList_is_empty(l)){
+
+//         Linkedlist_add_last(inicio_lista, valor);
+//         LinkedList_remove(remover, value);
+//     }
+// }

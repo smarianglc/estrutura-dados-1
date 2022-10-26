@@ -11,6 +11,6 @@ Node *Node_create(int val);
 LinkedList *LinkedList_create();
 
 bool LinkedList_is_empty(const LinkedList *l);
-void Linkedlist_add_first(LinkedList *l, int val);
-void Linkedlist(LinkedList *l, int val);
-void LinkedList_remove(LinkedList *l, int val);
+void Linkedlist_add_last(LinkedList *l, int val);
+void Linkedlist_remove (LinkedList *l, int val);
+void Linkedlist_recursiva(LinkedList *l, int val);
