@@ -11,6 +11,7 @@ typedef struct node{
 typedef struct linked_list{
     Node *begin;
     Node *end;
+    size_t size;
 }LinkedList;
 
 Node *Node_create(int val){
@@ -28,6 +29,7 @@ LinkedList *LinkedList_create(){
 
     l->begin = NULL;
     l->end = NULL;
+    l->size = 0;
 }
 
 //função para verificar se o inicio e o fim da linha é null
@@ -61,13 +63,30 @@ void Linkedlist_add_last(LinkedList *l, int val){
 
 void LinkedList_remove(LinkedList *l, int val){
     if(!LinkedList_is_empty(l)){
-        if(l->begin->val == val){
-            Node *pos = l->begin;
-            LinkedList_remove(l->begin->next);
-            free(l);
+        Node *prev = NULL;
+        Node *pos = l -> begin;
 
+        while (pos != NULL && pos -> val != val){
+            prev = pos;
+            pos = pos -> next;
         }
-    }
+
+        if(pos != NULL){
+            if(l->end == pos){
+                l->end = l->begin->next;
+            }
+            if(l->begin == pos){
+                l->begin = l->begin->next;
+            }
+            else{
+                prev->next = pos->next;
+            }
+
+            free(pos);
+            l -> size--;
+        }
+        }
+        
 }
 
 // void Linkedlist_recusiva (LinkedList *l, int val){
