@@ -33,18 +33,36 @@ LinkedList *LiLi_create(){
     return L;
 }
 
+//FUNCAO DE DISTRUIR A LINKEDLIST
+void destroy_LinkedList(LinkedList **L_ref){
+    LinkedList *L = *L_ref;
+
+    NodeSimple *p = L->begin;
+    NodeSimple *aux = NULL;
+
+    while (p != NULL){
+        aux = p;
+        p = p->next;
+        p = p->next;
+        free(aux);
+    }
+    free(L);
+
+    *L_ref = NULL;    
+}
+
 bool *LinkedList_is_empty(const LinkedList *l){
     return (l->begin == NULL && l->end == NULL);
 }
 
 //FUNÇÃO PARA QUE INICIAR A LISTA
 /*list vai apontar para o primeiro nó da list*/
-// void ADD_LinkedList(LinkedList *L, int val){
-//     //pode ser usado para se a lista esta vazia ou não
-//     NodeSimple * noP = Create_NoSi(val);
-//     noP -> next = L -> begin;
-//     L -> begin = noP;
-// }
+void ADD_LinkedList(LinkedList *L, int val){
+    //pode ser usado para se a lista esta vazia ou não
+    NodeSimple * noP = Create_NoSi(val);
+    noP -> next = L -> begin;
+    L -> begin = noP;
+}
 
 //FUNCAO PARA NOVA INSERCAO NO INICIO DA LISTA
 void ADD_LinkedList_Inicio(LinkedList *L, int val){
@@ -105,7 +123,13 @@ void Print_LinkedList(const LinkedList *L){
     }
     printf("NULL");
     printf("\n");
-    
+
+    if(L->end == NULL){
+        printf("L->end = NULL\n");
+    }
+    else{
+        printf("L->end = %d\n ", L->end->value);
+    }   
 }
 //FUNCAO PARA DESTRUIR A LISTA
 void linkedList_destroy(LinkedList **L_ref){
@@ -119,4 +143,47 @@ void linkedList_destroy(LinkedList **L_ref){
         free(aux);
     }
     free(L); //desaloca a lista
+}
+
+void remove_LinkedList(LinkedList *L, int val){
+    if (!LinkedList_is_empty(L)){
+        //caso 1 - o elemento esta o inicio da lista
+        if(L->begin->value == val){
+            NodeSimple *pos = L->begin;
+            
+            //se alista tem apenas uma lista
+            if(L->begin = L->begin){
+                L->end == NULL;
+            }
+            //L->begin->next = pos->next;
+
+            if(L->end == pos){
+                L->end == NULL;
+            }
+            free(pos);
+        }
+        //caso 2 - se o elemento estiver no meio da lista
+        else{
+            NodeSimple *prev = L->begin;
+            NodeSimple *pos = L->begin->next;
+
+            while (pos != NULL && pos->value != val){
+                prev = prev->next;
+                pos = pos->next;
+            }
+
+            //se pos for diferente de nulo, então um nó de valor foi encontrado e eh apontado pelo ponteiro pos
+            if(pos != NULL){
+                prev->next = pos->next;
+
+                //caso 3 - remover o último nó da lista
+                if(pos->next == NULL){
+                    L->end = prev;
+                }
+                free(pos);
+            }
+            
+        }
+
+    }
 }

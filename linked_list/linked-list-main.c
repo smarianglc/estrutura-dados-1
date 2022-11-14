@@ -46,20 +46,45 @@ int main (void){
     // t2 = tic();
     // printf("Tempo de performace de add last: %f\n",comptime(t1,t2));
 //------------------------------------------------------------------------------------------
-
+    /*FUNÇÃO DE ADCIONAR NO COMEÇO*/
     LinkedList *inicioList = LiLi_create();
 
-    ADD_LinkedList_Inicio(inicioList, 5);
+    // ADD_LinkedList_Inicio(inicioList, 5);
+    // Print_LinkedList(inicioList);
+
+    // ADD_LinkedList_Inicio(inicioList, 4);
+    // Print_LinkedList(inicioList);
+
+    // ADD_LinkedList_Inicio(inicioList, 2);
+    // Print_LinkedList(inicioList);
+
+    // ADD_LinkedList_Inicio(inicioList, 10);
+    // Print_LinkedList(inicioList);
+
+//------------------------------------------------------------------------------------------
+    /*FUNÇÃO PARA ADICIONAR NO FINAL*/
+    add_Last_ll(inicioList, 10);
+    add_Last_ll(inicioList, 2);
+    add_Last_ll(inicioList, 4);
+    add_Last_ll(inicioList, 5);
+    add_Last_ll(inicioList, 7);
     Print_LinkedList(inicioList);
 
-    ADD_LinkedList_Inicio(inicioList, 4);
+    /*FUNÇÃO PARA REMOVER -- incio*/
+    remove_LinkedList(inicioList, 10);
     Print_LinkedList(inicioList);
 
-    ADD_LinkedList_Inicio(inicioList, 2);
+    /*FUNÇÃO PARA REMOVER -- meio da lista*/
+    remove_LinkedList(inicioList, 5);
     Print_LinkedList(inicioList);
 
-    ADD_LinkedList_Inicio(inicioList, 10);
+    /*FUNCÃO PARA REMOVER*/
+    remove_LinkedList(inicioList, 7);
     Print_LinkedList(inicioList);
+
+    /*FUNÇÃO DE DISTRUIR*/
+    destroy_LinkedList(&L);
+    print("L == NULL: %d\n", L == NULL);
 
 
     return 0;

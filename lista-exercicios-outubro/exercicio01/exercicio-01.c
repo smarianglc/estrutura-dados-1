@@ -41,7 +41,7 @@ void Linkedlist_add_last(LinkedList *l, int val){
     Node *noP = Node_create(val);
     noP->next = l->begin;
 
-    if (LinkedList_is_empty(l)){
+    if (LinkedList_is_empty(l, )){
         l->end = noP;
     }
 
