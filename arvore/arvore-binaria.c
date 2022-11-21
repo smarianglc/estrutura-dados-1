@@ -6,6 +6,7 @@
 /*não é passada na .h porque é usada somente aqui*/
 void add(Node *node, int val);
 void pre(Node *node);
+void in(Node *node);
 
 typedef struct _tree{
     Node *root; //raiz
@@ -23,7 +24,6 @@ Tree *create_tree(){
     return T;
 }
 
-
 Node *create_node(int val){
     Node *node = (Node *) malloc(sizeof(Node));
 
@@ -34,8 +34,23 @@ Node *create_node(int val){
     return node;
 }
 
-void destroy_tree(Tree *T){
+void Node_destroy(Node **N_ref){
+    Node *no = *N_ref;
+    if (no == NULL){
+        return;
+    }
+    free(no);
+    *N_ref = NULL;
+}
 
+void Tree_destroy(Tree *T){
+    if(T->root == NULL){
+        fprintf(stderr, "ERRO AO DETRUIR");
+        fprintf(stderr, "Arvore não tem raizes");
+        exit(EXIT_FAILURE);
+    }
+    Node_destroy(T->root);
+    free(T);
 }
 
 bool tree_is_empty(Tree *T){
@@ -76,8 +91,18 @@ void insert(Tree *T, int val){
 }
 
 void pre(Node *node){
+    if (node != NULL){
+        printf("%d", node->val);
+        pre(node->left);
+        pre(node->right);
+    }
+}
 
-}
 void pre_order(Tree *T){
-    if(tree_is_empty);
+    if(tree_is_empty(T)){
+        puts("ARVORE NULA");
+        return;
+    }
+    pre(T->root);
 }
+
